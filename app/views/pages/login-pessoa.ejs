@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/config.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Login - Conecta Mundos</title>
+    <script src="/js/config.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="/imagem/logo_degrade.png" alt="Logo Conecta Mundos">
+            </a>
+        </div>
+        <div class="navegacao">
+        </div>
+    </header>
+
+    <main>
+        <div class="textos">
+            <div class="title">
+                <h2>Bem-vindo de volta</h2>
+            </div>
+            <div class="logins">
+                <p>Ainda não tem uma conta? <span><a href="/cadastro">Cadastre-se</a></span></p>
+                <p>Já tem conta de ONG? <span><a href="/login-ong">Entre agora</a></span></p>
+                <p>Tem uma ONG? <span><a href="/cadastro-ong">Cadastre-se</a></span></p>
+            </div>
+        </div>
+
+        <div class="login-rapidos">
+            <button type="button" class="login-btn">
+                <img class="icone" src="/imagem/google (1).png" alt="Ícone Google">
+                Google
+            </button>
+            <button type="button" class="login-btn">
+                <img class="icone" src="/imagem/facebook.png" alt="Ícone Facebook">
+                Facebook
+            </button>
+        </div>
+
+        <div class="divisao">
+            <hr>
+            <p>Ou entre com e-mail</p>
+            <hr>
+        </div>
+
+        <form class="formulario" action="/login" method="POST" novalidate>
+            <div class="campo">
+                <label for="email-login">E-mail</label>
+                <input type="email" id="email-login" name="email" placeholder="Digite seu e-mail" value="<%= valores.email || '' %>" required>
+                <% if (erros.email) { %><span class="erro-campo" role="alert"><%= erros.email %></span><% } %>
+            </div>
+
+            <div class="campo">
+                <label for="senha-login">Senha</label>
+                <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" required>
+                <% if (erros.senha) { %><span class="erro-campo" role="alert"><%= erros.senha %></span><% } %>
+            </div>
+
+            <div class="botao">
+                <button type="submit" class="entrar">Entrar</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Configurações (fonte e tema) -->
+    <%- include('../partials/config-painel', { classe: '' }) %>
+</body>
+
+</html>
