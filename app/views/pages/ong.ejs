@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/config.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/ong.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title><%= ong.nome %> - Conecta Mundos</title>
+    <script src="/js/config.js"></script>
+</head>
+
+<body>
+    <header class="ong-header">
+        <a href="/" class="logo">
+            <img class="logo-img" src="/imagem/logo_degrade.png" alt="Logo Conecta Mundos">
+        </a>
+        <a href="/#ongs" class="btn-voltar-ong">← Voltar</a>
+    </header>
+
+    <section class="ong-hero" style="background-image: url('<%= ong.imagem %>');">
+        <div class="ong-hero-conteudo">
+            <span class="tag-ong">
+                <img src="/imagem/coracao.png" alt="" class="mini-coracao-tag">
+                <%= ong.categoria %>
+            </span>
+            <h1><%= ong.nome %></h1>
+            <p><%= ong.resumo %></p>
+            <span class="ong-selo"><i class="fa-solid fa-circle-check"></i> ONG verificada</span>
+        </div>
+    </section>
+
+    <main class="ong-conteudo">
+        <section class="ong-impacto" aria-label="Impacto">
+            <% ong.impacto.forEach(function (i) { %>
+            <div class="ong-numero"><strong><%= i.numero %></strong><span><%= i.rotulo %></span></div>
+            <% }) %>
+        </section>
+
+        <section class="ong-bloco">
+            <h2>Sobre a ONG</h2>
+            <p><%= ong.sobre %></p>
+            <p><strong>Missão:</strong> <%= ong.missao %></p>
+            <p><strong>Fundada em:</strong> <%= ong.fundacao %> · <strong>Localização:</strong> <%= ong.local %></p>
+        </section>
+
+        <div class="ong-duas-colunas">
+            <section class="ong-bloco">
+                <h2>O que fazemos</h2>
+                <ul class="ong-lista">
+                    <% ong.atividades.forEach(function (a) { %><li><%= a %></li><% }) %>
+                </ul>
+            </section>
+
+            <section class="ong-bloco">
+                <h2>Como você pode ajudar</h2>
+                <ul class="ong-lista">
+                    <% ong.voluntarios.forEach(function (a) { %><li><%= a %></li><% }) %>
+                </ul>
+            </section>
+        </div>
+
+        <section class="ong-bloco">
+            <h2>Contato</h2>
+            <ul class="ong-lista ong-contato">
+                <li><i class="fa-solid fa-envelope"></i><a href="mailto:<%= ong.contato.email %>"><%= ong.contato.email %></a></li>
+                <li><i class="fa-solid fa-phone"></i><span><%= ong.contato.telefone %></span></li>
+                <li><i class="fa-solid fa-globe"></i><span><%= ong.contato.site %></span></li>
+                <li><i class="fa-solid fa-location-dot"></i><span><%= ong.local %></span></li>
+            </ul>
+            <a href="/login" class="btn-quero-ajudar"><i class="fa-solid fa-hand-holding-heart"></i> Quero ajudar esta ONG</a>
+        </section>
+    </main>
+
+    <%- include('../partials/config-painel', { classe: '' }) %>
+</body>
+
+</html>

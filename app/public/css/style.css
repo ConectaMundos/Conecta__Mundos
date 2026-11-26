@@ -391,6 +391,22 @@ section {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Evita o estilo global de "span" (texto em degradê) nas tags e links */
+.tag-ong {
+    background: var(--superficie);
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
+}
+
+.ver-mais,
+.ver-mais .seta {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: currentColor;
+}
+
 .mini-coracao-tag {
     width: 18px;
     height: auto;
@@ -400,8 +416,35 @@ section {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 20px;
+}
+
+.card-ong {
+    color: inherit;
+}
+
+.nome-ong {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--texto);
+    margin-bottom: 6px;
+}
+
+.ver-mais {
+    margin-top: 14px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #027457;
+}
+
+[data-tema="escuro"] .ver-mais {
+    color: #00e5b6;
+}
+
+.card-ong:hover .ver-mais .seta {
+    display: inline-block;
+    transform: translateX(4px);
 }
 
 .info-ong p {

@@ -1,11 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const v = require("./validacoes");
+const ongs = require("../data/ongs");
 
 // Páginas sem erro recebem objetos vazios
 const vazio = { erros: {}, valores: {} };
 
-router.get("/", (req, res) => res.render("pages/index"));
+router.get("/", (req, res) => res.render("pages/index", { ongs }));
+
+// Tela de detalhes de uma ONG
+router.get("/ong/:slug", (req, res) => {
+    const ong = ongs.find((o) => o.slug === req.params.slug);
+    if (!ong) return res.redirect("/#ongs");
+    res.render("pages/ong", { ong });
+});
 
 // Login de pessoa
 router.get("/login", (req, res) => res.render("pages/login-pessoa", vazio));

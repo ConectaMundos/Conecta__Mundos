@@ -88,65 +88,21 @@
             </div>
 
             <div class="grid-ongs">
-                <div class="card-ong">
-                    <div class="banner-ong" style="background-image: url('/imagem/ONGs_educacao.webp');">
+                <% ongs.forEach(function (ong) { %>
+                <a href="/ong/<%= ong.slug %>" class="card-ong" aria-label="Ver detalhes de <%= ong.nome %>">
+                    <div class="banner-ong" style="background-image: url('<%= ong.imagem %>');">
                         <span class="tag-ong">
                             <img src="/imagem/coracao.png" alt="" class="mini-coracao-tag">
-                            Educação
+                            <%= ong.categoria %>
                         </span>
                     </div>
                     <div class="info-ong">
-                        <p>Levando conhecimento e oportunidades para todos.</p>
+                        <h3 class="nome-ong"><%= ong.nome %></h3>
+                        <p><%= ong.resumo %></p>
+                        <span class="ver-mais">Ver mais <span class="seta">→</span></span>
                     </div>
-                </div>
-
-                <div class="card-ong">
-                    <div class="banner-ong" style="background-image: url('/imagem/ONGs_ambiental.webp');">
-                        <span class="tag-ong">
-                            <img src="/imagem/coracao.png" alt="" class="mini-coracao-tag">
-                            Meio Ambiente
-                        </span>
-                    </div>
-                    <div class="info-ong">
-                        <p>Promovendo sustentabilidade e preservação ambiental.</p>
-                    </div>
-                </div>
-
-                <div class="card-ong">
-                    <div class="banner-ong" style="background-image: url('/imagem/ONGs_cultura.avif');">
-                        <span class="tag-ong">
-                            <img src="/imagem/coracao.png" alt="" class="mini-coracao-tag">
-                            Cultura
-                        </span>
-                    </div>
-                    <div class="info-ong">
-                        <p>Preservando tradições e incentivando a expressão cultural.</p>
-                    </div>
-                </div>
-
-                <div class="card-ong">
-                    <div class="banner-ong" style="background-image: url('/imagem/ONGs_moradia.jpg');">
-                        <span class="tag-ong">
-                            <img src="/imagem/coracao.png" alt="" class="mini-coracao-tag">
-                            Moradia
-                        </span>
-                    </div>
-                    <div class="info-ong">
-                        <p>Promovendo moradia e qualidade de vida para todos.</p>
-                    </div>
-                </div>
-
-                <div class="card-ong">
-                    <div class="banner-ong" style="background-image: url('/imagem/ONGs_animais.jpg');">
-                        <span class="tag-ong">
-                            <img src="/imagem/coracao.png" alt="" class="mini-coracao-tag">
-                            Animais
-                        </span>
-                    </div>
-                    <div class="info-ong">
-                        <p>Resgatamos, cuidamos e encontramos lares para animais abandonados.</p>
-                    </div>
-                </div>
+                </a>
+                <% }) %>
             </div>
         </div>
     </section>
