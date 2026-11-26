@@ -92,7 +92,7 @@ header {
     color: #00E5B6;
 }
 
-/* === HERO / INÍCIO === */
+/* ===INÍCIO === */
 .inicio {
     width: 100%;
     min-height: 100vh;
@@ -251,7 +251,6 @@ section {
     width: 100%;
 }
 
-/* no celular ficam 2 cards por linha (antes era 1 por linha) */
 .card {
     background-color: var(--superficie);
     border-radius: 16px;

@@ -1,7 +1,4 @@
-/* =====================================================
-   config.css - cores dos temas + painel de configurações
-   Carregue em TODAS as páginas, ANTES do style.css/login.css
-   ===================================================== */
+
 
 /* ---------- Tema claro (padrão) ---------- */
 :root {
@@ -47,9 +44,7 @@ textarea:focus-visible {
     }
 }
 
-/* =====================================================
-   PAINEL DE CONFIGURAÇÕES
-   ===================================================== */
+/* PAINEL DE CONFIGURAÇÕES*/
 .config {
     position: fixed;
     right: 16px;
@@ -61,7 +56,6 @@ textarea:focus-visible {
     gap: 12px;
 }
 
-/* usado só na index, onde existe a barra de navegação embaixo */
 .config-com-nav {
     bottom: 86px;
 }
@@ -118,7 +112,6 @@ textarea:focus-visible {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--texto-suave);
-    /* cancela o degradê global dos <span> do style.css / login.css */
     background: none;
     -webkit-background-clip: initial;
     background-clip: initial;
@@ -154,7 +147,6 @@ textarea:focus-visible {
     cursor: not-allowed;
 }
 
-/* botão do tema que está ativo */
 .config-linha button[aria-pressed="true"] {
     background-color: #00E5B6;
     border-color: #00E5B6;
